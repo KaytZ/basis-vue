@@ -5,23 +5,21 @@
 </template>
 
 <script>
-    export default {
-        name: "register",
-        data() {
-            return {
-                loading: true
-            }
-        },
-        mounted() {
-            this.initData()
-        },
-        methods: {
-            initData() {
-            }
-        }
-    }
+export default {
+  name: "register",
+  data() {
+    return {
+      loading: true
+    };
+  },
+  mounted() {
+    this.initData();
+  },
+  methods: {
+    initData() {}
+  }
+};
 </script>
 
 <style scoped>
-
 </style>

@@ -1,67 +1,89 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import store from "./store";
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+Vue.use(Router);
 const router = new Router({
-    routes: [
+  routes: [
+    {
+      path: "/",
+      name: "layout",
+      redirect: "/home",
+      component: () => import("./views/Layout.vue"),
+      children: [
         {
-            path: '/',
-            name: 'layout',
-            redirect: '/home',
-            component: () => import('./views/Layout.vue'),
-            children:[
-                {
-                    path: '/home',
-                    name: 'home',
-                    component: () => import('./views/Home.vue')
-                },
-                {
-                    path: '/about',
-                    name: 'about',
-                    component: () => import('./views/About.vue')
-                },
-                {
-                    path: '/product',
-                    name: 'product',
-                    component: () => import('./views/Product.vue'),
-                    children: [
-                        {
-                            path: 'list',
-                            component: () => import('./views/product/list.vue'),
-                            name: 'productList'
-                        },
-                        {
-                            path: 'edit',
-                            component: () => import('./views/product/edit.vue'),
-                            name: 'productEdit'
-                        }
-                    ]
-                },
-            ]
+          path: "/home",
+          name: "home",
+          component: () => import("./views/Home.vue")
         },
         {
-            path: '/login',
-            name: 'login',
-            component: () => import('./views/Login.vue')
+          path: "/about",
+          name: "about",
+          component: () => import("./views/About.vue")
         },
         {
-            path: '/register',
-            name: 'register',
-            component: () => import('./views/Register.vue')
+          path: "/join",
+          name: "join",
+          component: () => import("./views/Join.vue")
         },
         {
-            path: '*',
-            redirect: '/home'
+          path: "/product/opinionanalysis",
+          component: () => import("./views/product/OpinionAnalysis.vue"),
+          name: "iot"
+        },
+        {
+          path: "/product/microservice",
+          component: () => import("./views/product/MicroService.vue"),
+          name: "iot"
+        },
+        {
+          path: "/product/mes",
+          component: () => import("./views/product/Mes.vue"),
+          name: "iot"
+        },
+        {
+          path: "/product/restaurant",
+          component: () => import("./views/product/Restaurant.vue"),
+          name: "iot"
+        },
+        {
+          path: "/product/iot",
+          component: () => import("./views/product/Iot.vue"),
+          name: "iot"
+        },
+        {
+          path: "/solutions/fashion",
+          component: () => import("./views/solutions/Fashion.vue"),
+          name: "iot"
+        },
+        {
+          path: "/solutions/phone",
+          component: () => import("./views/solutions/Phone.vue"),
+          name: "iot"
         }
-    ],
-    scrollBehavior (to, from, savedPosition) {
-        if (savedPosition) {
-            return savedPosition
-        } else {
-            return { x: 0, y: 0 }
-        }
+      ]
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("./views/Login.vue")
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("./views/Register.vue")
+    },
+    {
+      path: "*",
+      redirect: "/home"
     }
-})
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  }
+});
 
-export default router
+export default router;

@@ -17,18 +17,16 @@
 </template>
 
 <script>
-    import Sticky from '@/components/Sticky'
-    export default {
-        name: "product",
-        components: { Sticky },
-        data() {
-            return {
-
-            }
-        }
-    }
+import Sticky from "@/components/Sticky";
+export default {
+  name: "product",
+  components: { Sticky },
+  data() {
+    return {};
+  }
+};
 </script>
 
 <style scoped type="text/less" lang="less">
-    @import "../assets/css/product.less";
+@import "../assets/css/product.less";
 </style>
