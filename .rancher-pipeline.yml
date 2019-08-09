@@ -1,0 +1,14 @@
+stages:
+- name: push
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: |-
+        npm install
+        npm run build
+  when:
+    event:
+      include:
+      - push
+timeout: 60
+notification: {}
